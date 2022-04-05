@@ -151,4 +151,10 @@ public class Main {
         //No winner yet
         return ' ';
     }
+
+    public static boolean checkBoardFull(char[][] board){
+        //Implement method
+        //Iterate through board and check if all chars == '-'
+        return false;
+    }
 }
