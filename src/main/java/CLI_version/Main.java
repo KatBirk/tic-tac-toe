@@ -67,8 +67,14 @@ public class Main {
                 System.out.println("Player 2 has won!");
                 gameFinished = true;
             } else {
-                //Check if board is full
-                //If not full, change turn
+                if (checkBoardFull(board)){
+                    System.out.println("The board is full. Ending the game...");
+                    gameFinished = true;
+
+                } else {
+                    //change turn
+                    player1Turn = !player1Turn;
+                }
             }
         }
         printBoard(board);
@@ -145,7 +151,10 @@ public class Main {
             }
         }
 
-        //Check diagonals
+        if (board[0][0] == board[1][1] && board[0][0] ==board[2][2] && board[0][0]!='-'
+                || board[0][2] == board[1][1] && board[0][2] ==board[2][0] && board[0][2]!='-'){
+            return board[1][1];
+        }
 
 
         //No winner yet
@@ -154,7 +163,13 @@ public class Main {
 
     public static boolean checkBoardFull(char[][] board){
         //Implement method
-        //Iterate through board and check if all chars == '-'
-        return false;
+        for (int i = 0; i < 3; i++){
+            for (int j=0; j<3;j++){
+                if (board[i][j] == '-'){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
